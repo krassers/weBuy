@@ -14,15 +14,37 @@ public class Product {
     @Basic(optional = false)
     private String name;
 
-    private Double price;
+    private String description;
+
+    private String category;
+
+    private Double purchase_price;
+
+    private Double selling_price;
+
+    private String status;
 
     private String pictureUrl;
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, Double price, String pictureUrl) {
+    // @ManyToOne
+    // @JoinColumn(name="supplier_id")
+    // private User supplier;
+
+    // @ManyToOne
+    // @JoinColumn(name="customer_id")
+    // private User customer;
+
+    public Product(Long id, @NotNull(message = "Product name is required.") String name, String description, String category, 
+    Double purchase_price, Double selling_price, String status, String pictureUrl) {
         this.id = id;
         this.name = name;
-        this.price = price;
+        this.description = description;
+        this.category = category;
+        this.purchase_price = purchase_price;
+        this.selling_price = selling_price;
+        this.status = status;
         this.pictureUrl = pictureUrl;
+        //TODO: supplier & customer
     }
 
     public Product() {
@@ -44,13 +66,76 @@ public class Product {
         this.name = name;
     }
 
-    public Double getPrice() {
-        return price;
+    /**
+     * @return the purchase_price
+     */
+    public Double getPurchase_price() {
+        return purchase_price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    /**
+     * @param purchase_price the purchase_price to set
+     */
+    public void setPurchase_price(Double purchase_price) {
+        this.purchase_price = purchase_price;
     }
+
+    /**
+     * @return the category
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * @return the selling_price
+     */
+    public Double getSelling_price() {
+        return selling_price;
+    }
+    
+    /**
+     * @param selling_price the selling_price to set
+     */
+    public void setSelling_price(Double selling_price) {
+        this.selling_price = selling_price;
+    }
+
+    /**
+     * @return the status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
 
     public String getPictureUrl() {
         return pictureUrl;

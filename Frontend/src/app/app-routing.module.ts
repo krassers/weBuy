@@ -10,7 +10,7 @@ import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'product-list', pathMatch: 'full'},
+  {path: '', redirectTo: 'products', pathMatch: 'full'},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},

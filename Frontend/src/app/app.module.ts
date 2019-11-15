@@ -10,6 +10,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,11 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,1 +1,94 @@
-<p>register works!</p>
+<div class="container">
+  <div class="card-body">
+    <h3>Register</h3>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          [(ngModel)]="user.name"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+          #name="ngModel"
+        />
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">
+        Name is required
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          [(ngModel)]="user.email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter your email address"
+          required
+          #email="ngModel"
+        />
+        <div [hidden]="!email.pristine" class="alert alert-danger">
+          Email is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input
+          type="text"
+          [(ngModel)]="user.street"
+          class="form-control"
+          id="street"
+          name="street"
+          placeholder="Enter your street"
+          required
+          #street="ngModel"
+        />
+        <div [hidden]="street.valid" class="alert alert-danger">
+          Street is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          type="text"
+          [(ngModel)]="user.city"
+          class="form-control"
+          id="city"
+          name="city"
+          placeholder="Enter your street"
+          required
+          #city="ngModel"
+        />
+        <div [hidden]="!city.pristine" class="alert alert-danger">
+          City is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zip</label>
+        <input
+          type="text"
+          [(ngModel)]="user.zipcode"
+          class="form-control"
+          id="zipcode"
+          name="zipcode"
+          placeholder="Enter your zipcode"
+          required
+          #zipcode="ngModel"
+        />
+        <div [hidden]="!zipcode.pristine" class="alert alert-danger">
+          City is required
+        </div>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!userForm.form.valid"
+        class="btn btn-info"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

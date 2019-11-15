@@ -8,6 +8,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductFormComponent } from './product/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     LogoutComponent,
     RegisterComponent,
     CheckoutComponent,
+    ProductListComponent,
+    ProductFormComponent,
     ShoppingCartComponent
   ],
   imports: [

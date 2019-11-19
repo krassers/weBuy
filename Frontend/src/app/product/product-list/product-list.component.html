@@ -6,7 +6,7 @@
                 {{product.name}} | {{product.price}} € | {{product.status}}
             </div>
             <div class="card-text">{{product.description}}</div>
-            <a href="#" class="btn btn-primary">Buy</a>
+            <button class="btn btn-primary" [routerLink]="'/products/' + product.id">View Details of {{product.id}}</button>
         </div>
     </div>
 </div>

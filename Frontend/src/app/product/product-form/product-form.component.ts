@@ -34,13 +34,12 @@ export class ProductFormComponent implements OnInit {
 
 
     const id = this.route.snapshot.paramMap.get('id');
-    console.log('### Product Form: ', id);
+    console.log('### Product: ', id);
 
     if(id) {
       this.productService.getById(id)
       .subscribe((response) => {
         this.productForm.patchValue(response);
-        console.log('### product: ', this.product);
       });
     }
   }

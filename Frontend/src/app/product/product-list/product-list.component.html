@@ -1,1 +1,12 @@
-<p>product-list works!</p>
+<div style="max-width: 1000px; margin: 0 auto">
+    <h1>Product List</h1>
+    <div class="card" *ngFor="let product of products">
+        <div class="card-body">
+            <div class="card-title">
+                {{product.name}} | {{product.price}} € | {{product.status}}
+            </div>
+            <div class="card-text">{{product.description}}</div>
+            <a href="#" class="btn btn-primary">Buy</a>
+        </div>
+    </div>
+</div>

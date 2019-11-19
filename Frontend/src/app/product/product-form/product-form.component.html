@@ -1,29 +1,27 @@
-<form [formGroup]="productForm">
-
-    <label>
-        Name:
-        <input type="text" formControlName="name">
-    </label>
-    <label>
-        Description:
-        <input type="text" formControlName="description">
-    </label>
-    <label>
-        Purchase price:
-        <input type="text" formControlName="purchasePrice">
-    </label>
-    <label>
-        Selling price:
-        <input type="text" formControlName="sellingPrice">
-    </label>
-    <label>
-        Status:
-        <input type="text" formControlName="status">
-    </label>
-    <label>
-        Picture URL:
-        <input type="text" formControlName="pictureUrl">
-    </label>
-
+<form [formGroup]="productForm" style="max-width: 1000px; margin: 0 auto">
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" formControlName="name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Description:</label>
+        <input type="text" formControlName="description" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Purchase price:</label>
+        <input type="text" formControlName="purchasePrice" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Selling price:</label>
+        <input type="text" formControlName="sellingPrice" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Status:</label>
+        <input type="text" formControlName="status" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Picture URL:</label>
+        <input type="text" formControlName="pictureUrl" class="form-control">
+    </div>
 
 </form>

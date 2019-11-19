@@ -1,5 +1,29 @@
-<p>product-form works!</p>
+<form [formGroup]="productForm">
 
-<div style="max-width: 1000px; margin: 0 auto">
-    <h1>Product Name: xy</h1>
-</div>
+    <label>
+        Name:
+        <input type="text" formControlName="name">
+    </label>
+    <label>
+        Description:
+        <input type="text" formControlName="description">
+    </label>
+    <label>
+        Purchase price:
+        <input type="text" formControlName="purchasePrice">
+    </label>
+    <label>
+        Selling price:
+        <input type="text" formControlName="sellingPrice">
+    </label>
+    <label>
+        Status:
+        <input type="text" formControlName="status">
+    </label>
+    <label>
+        Picture URL:
+        <input type="text" formControlName="pictureUrl">
+    </label>
+
+
+</form>

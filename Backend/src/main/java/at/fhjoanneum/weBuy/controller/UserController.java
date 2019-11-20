@@ -1,6 +1,10 @@
 
 package at.fhjoanneum.weBuy.controller;
 
+import java.security.Principal;
+import java.util.Base64;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,19 +42,9 @@ public class UserController {
         return "redirect:/login";
     }
 
-    @GetMapping("/login")
-    public String login(Model model, String error, String logout) {
-        if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
-
-        if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
-
-        return "login";
-    }
-
-    @GetMapping({ "/", "/welcome" })
-    public String welcome(Model model) {
-        return "welcome";
+    @RequestMapping("/user")
+    public Principal user(HttpServletRequest request) {
+        String authToken = request.getHeader("Authorization").substring("Basic".length()).trim();
+        return () -> new String(Base64.getDecoder().decode(authToken)).split(":")[0];
     }
 }

@@ -26,16 +26,16 @@ public class Product {
 
     private String pictureUrl;
 
-    // @ManyToOne
-    // @JoinColumn(name="supplier_id")
-    // private User supplier;
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
+    private User supplier;
 
-    // @ManyToOne
-    // @JoinColumn(name="customer_id")
-    // private User customer;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private User customer;
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, String description, String category, 
-    Double purchase_price, Double selling_price, String status, String pictureUrl) {
+    public Product(Long id, @NotNull(message = "Product name is required.") String name, String description,
+            String category, Double purchase_price, Double selling_price, String status, String pictureUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -44,7 +44,6 @@ public class Product {
         this.selling_price = selling_price;
         this.status = status;
         this.pictureUrl = pictureUrl;
-        //TODO: supplier & customer
     }
 
     public Product() {
@@ -114,7 +113,7 @@ public class Product {
     public Double getSelling_price() {
         return selling_price;
     }
-    
+
     /**
      * @param selling_price the selling_price to set
      */
@@ -135,7 +134,6 @@ public class Product {
     public void setStatus(String status) {
         this.status = status;
     }
-    
 
     public String getPictureUrl() {
         return pictureUrl;

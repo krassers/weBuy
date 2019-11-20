@@ -1,5 +1,7 @@
 
 package at.fhjoanneum.weBuy.model;
+
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.*;
@@ -8,9 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class User {
 
     @Id
@@ -24,6 +24,12 @@ public class User {
 
     private String role;
 
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Product> orders;
+
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL)
+    private List<Product> sales;
+
     public User() {
     }
 
@@ -32,7 +38,6 @@ public class User {
         this.password = password;
         this.role = role;
     }
-
 
     public String getUsername() {
         return username;
@@ -58,7 +63,6 @@ public class User {
         this.id = id;
     }
 
-
     public String getRole() {
         return role;
     }
@@ -69,11 +73,12 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         User user = (User) o;
-        return Objects.equals(username, user.username) &&
-                Objects.equals(password, user.password);
+        return Objects.equals(username, user.username) && Objects.equals(password, user.password);
     }
 
     @Override

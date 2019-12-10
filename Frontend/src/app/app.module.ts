@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductViewComponent } from './product/product-view/product-view.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProductViewComponent } from './product/product-view/product-view.compon
     ShoppingCartComponent,
     ProductAddComponent,
     ProductEditComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

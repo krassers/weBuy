@@ -38,7 +38,7 @@ export class ProductAddComponent implements OnInit {
       .subscribe((response: any) => {
         console.log('### created product', response);
         alert('created successfully');
-        this.router.navigate(['/products', response.id]);
+        this.router.navigate(['/products']);
       })
   }
 

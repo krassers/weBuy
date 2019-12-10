@@ -29,4 +29,8 @@ export class ProductService {
     create(product: any) {
         return this.http.post('/api/products', product); 
     }
+
+    update(product: any) {
+        return this.http.put('/api/products/'+ product.id, product)
+    }
 }

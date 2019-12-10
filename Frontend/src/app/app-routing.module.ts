@@ -8,6 +8,7 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'add-product', component: ProductAddComponent},
-  {path: 'edit/:id', component: ProductFormComponent},
+  {path: 'edit-product/:id', component: ProductEditComponent},
   {path: 'products/:id', component: ProductFormComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent}
 ]; 

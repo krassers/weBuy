@@ -10,7 +10,7 @@
             </div>
             <div class="card-text">{{product.description}}</div>
             <button class="btn btn-primary" [routerLink]="'/products/' + product.id">View Details of {{product.id}}</button>
-            <button class="btn btn-danger">Delete</button>
+            <button class="btn btn-danger" (click)="deleteProduct(product)">Delete</button>
         </div>
     </div>
 </div>

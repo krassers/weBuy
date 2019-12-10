@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import {Router} from '@angular/router';
+import { Product } from 'src/app/api/product';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -9,20 +11,32 @@ import {Router} from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
   
-  products: [];
+  products: Observable<any[]>;
   
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit() { 
+    this.getProducts();
+  
+  }
+
+  getProducts() {
     this.productService.getAll()
-    .subscribe((products: any) => {
-      this.products = products._embedded.products;
-      console.log('###', this.products);
+    .subscribe((response: any) => {
+      this.products = response._embedded.products;
+      console.log('###', response);
     })
   }
 
   createProduct(){
     this.router.navigate(['add-product']);
+  }
+
+  deleteProduct(product: Product){
+    this.productService.delete(product)
+    .subscribe(() => {
+      // update list of products here !!!
+    })
   }
 
 }

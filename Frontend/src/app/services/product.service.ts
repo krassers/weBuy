@@ -18,7 +18,7 @@ export class ProductService {
     }
 
     getAll() {
-        return this.http.get('/api/products')
+        return this.http.get('/api/products');
         // .pipe(
         //     map((response: any) => {
         //         return response._embedded.products;
@@ -32,5 +32,9 @@ export class ProductService {
 
     update(product: any) {
         return this.http.put('/api/products/'+ product.id, product)
+    }
+
+    delete(product) {
+        return this.http.delete('/api/products/' + product.id);
     }
 }

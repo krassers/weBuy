@@ -12,6 +12,9 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductAddComponent } from './product/product-add/product-add.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { ProductViewComponent } from './product/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CheckoutComponent,
     ProductListComponent,
     ProductFormComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProductAddComponent,
+    ProductEditComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,

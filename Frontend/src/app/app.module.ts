@@ -11,6 +11,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

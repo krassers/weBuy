@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getAll()
     .subscribe((response: any) => {
       this.products = response._embedded.products;
-      console.log(this.products)
+      console.log('###', this.products)
     })
   }
 

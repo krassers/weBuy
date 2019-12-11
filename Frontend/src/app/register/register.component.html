@@ -1,92 +1,98 @@
 <div class="container">
   <div class="card-body">
     <h3>Register</h3>
-    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
       <div class="form-group">
         <label for="name">Name</label>
         <input
           type="text"
-          [(ngModel)]="user.name"
+          formControlName="username"
           class="form-control"
           id="name"
           name="name"
           placeholder="Enter your name"
           required
-          #name="ngModel"
         />
       </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">
+      <!-- <div [hidden]="!name.pristine" class="alert alert-danger">
         Name is required
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="email">Email</label>
         <input
           type="text"
-          [(ngModel)]="user.email"
           class="form-control"
           id="email"
           name="email"
           placeholder="Enter your email address"
           required
-          #email="ngModel"
+          formControlName="email"
         />
-        <div [hidden]="!email.pristine" class="alert alert-danger">
+        <!-- <div [hidden]="!email.pristine" class="alert alert-danger">
           Email is required
-        </div>
+        </div> -->
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+          formControlName="password"
+        />
+        <!-- <div [hidden]="!email.pristine" class="alert alert-danger">
+          Email is required
+        </div> -->
       </div>
       <div class="form-group">
         <label for="street">Street</label>
         <input
           type="text"
-          [(ngModel)]="user.street"
           class="form-control"
           id="street"
           name="street"
           placeholder="Enter your street"
           required
-          #street="ngModel"
+          formControlName="street"
         />
-        <div [hidden]="street.valid" class="alert alert-danger">
+        <!-- <div [hidden]="street.valid" class="alert alert-danger">
           Street is required
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="city">City</label>
         <input
           type="text"
-          [(ngModel)]="user.city"
           class="form-control"
           id="city"
           name="city"
           placeholder="Enter your street"
           required
-          #city="ngModel"
+          formControlName="city"
         />
-        <div [hidden]="!city.pristine" class="alert alert-danger">
+        <!-- <div [hidden]="!city.pristine" class="alert alert-danger">
           City is required
-        </div>
+        </div> -->
       </div>
       <div class="form-group">
         <label for="zipcode">Zip</label>
         <input
           type="text"
-          [(ngModel)]="user.zipcode"
           class="form-control"
           id="zipcode"
           name="zipcode"
           placeholder="Enter your zipcode"
           required
-          #zipcode="ngModel"
+          formControlName="zipcode"
         />
-        <div [hidden]="!zipcode.pristine" class="alert alert-danger">
+        <!-- <div [hidden]="!zipcode.pristine" class="alert alert-danger">
           City is required
-        </div>
+        </div> -->
       </div>
-      <button
-        type="submit"
-        [disabled]="!userForm.form.valid"
-        class="btn btn-info"
-      >
+      <button type="submit" [disabled]="userForm.invalid" class="btn btn-info">
         Submit
       </button>
     </form>

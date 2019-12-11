@@ -9,12 +9,17 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import at.fhjoanneum.weBuy.model.User;
 import at.fhjoanneum.weBuy.service.UserService;
 
 @RestController
+//@RequestMapping("/api")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -33,13 +38,18 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String registration(@RequestBody @Valid User user) {
+    public User registration(@RequestBody @Valid User user) {
+        User registered = null;
+        try {
         userService.save(user);
-
+        }
+        catch(Error error) {
+            
+        }
         // securityService.autoLogin(userForm.getUsername(),
         // userForm.getPasswordConfirm());
 
-        return "redirect:/login";
+        return registered;
     }
 
     @RequestMapping("/user")

@@ -4,7 +4,13 @@ package at.fhjoanneum.weBuy.model;
 import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -23,6 +29,11 @@ public class User {
     private String password;
 
     private String role;
+
+    private String zipcode;
+
+    private String city;
+    private String street;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Product> orders;
@@ -70,6 +81,7 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+    
 
     @Override
     public boolean equals(Object o) {
@@ -85,4 +97,28 @@ public class User {
     public int hashCode() {
         return Objects.hash(username, password);
     }
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
 }

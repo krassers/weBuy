@@ -17,14 +17,12 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public void save(User user) {
-        try {
+    public User save(User user) {
+        
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             user.setRole(user.getRole());
-            userRepository.save(user);
+            return userRepository.save(user);
             // return user;
-        } catch (Error error) {
-        }
 
     }
 

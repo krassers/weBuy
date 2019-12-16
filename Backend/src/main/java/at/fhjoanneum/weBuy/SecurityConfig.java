@@ -47,7 +47,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterAfter(new JwtTokenAuthenticationFilter(jwtConfig), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 // allow all POST requests
-                .antMatchers(HttpMethod.POST, "/registration").permitAll().anyRequest().authenticated();
+                // .anyRequest().permitAll();
+                .antMatchers(HttpMethod.POST, "/registration").permitAll()
+                .antMatchers(HttpMethod.GET,"/products/status/*").permitAll()
+                .anyRequest().authenticated();
         ;
 
     }

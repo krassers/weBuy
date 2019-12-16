@@ -1,5 +1,7 @@
 package at.fhjoanneum.weBuy.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +31,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> findByStatus(String status)
+    {
+        return productRepository.findByStatus(status);
+    }
+
+    @Override
     public Product save(Product product) {
         return productRepository.save(product);
+    }
+
+    @Override
+    public void delete(Long id)
+    {
+        productRepository.deleteById(id);
     }
 }

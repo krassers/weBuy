@@ -9,22 +9,20 @@ import { RegisterComponent } from "./register/register.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { ProductListComponent } from "./product/product-list/product-list.component";
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms"; // <== add the imports!
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserService } from "./services/user.service";
 import { ToastNoAnimationModule, ToastrModule } from "ngx-toastr";
 import { JwtModule } from "@auth0/angular-jwt";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ShowHidePasswordModule } from "ngx-show-hide-password";
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import { ProductAddComponent } from './product/product-add/product-add.component';
-import { ProductEditComponent } from './product/product-edit/product-edit.component';
-import { ProductViewComponent } from './product/product-view/product-view.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NavigationBarComponent } from "./navigation-bar/navigation-bar.component";
+import { ProductAddComponent } from "./product/product-add/product-add.component";
+import { ProductEditComponent } from "./product/product-edit/product-edit.component";
+import { ProductViewComponent } from "./product/product-view/product-view.component";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
 }
-
 
 @NgModule({
   declarations: [

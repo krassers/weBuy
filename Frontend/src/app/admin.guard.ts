@@ -23,9 +23,9 @@ export class AdminGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (this.userService.getRole() === "ROLE_ADMIN") {
-      this.router.navigate(["/products"]);
       return true;
     }
+    this.router.navigate(["/products"]);
     return false;
   }
 }

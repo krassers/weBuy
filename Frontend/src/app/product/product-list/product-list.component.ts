@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product.service'
+import { ProductService } from '../../services/product.service';
+import {Router} from '@angular/router';
+import { Product } from 'src/app/api/product';
 
 @Component({
   selector: 'app-product-list',
@@ -8,15 +10,39 @@ import { ProductService } from '../../services/product.service'
 })
 export class ProductListComponent implements OnInit {
   
-  products = [];
+  products: Array<Product>
   
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit() { 
+    this.getProducts();
+  
+  }
+
+  getProducts() {
     this.productService.getAll()
     .subscribe((response: any) => {
-      this.products = response._embedded.products;
-      console.log('###', this.products)
+      this.products = response;
+      console.log('###', this.products);
+    })
+  }
+
+  createProduct(){
+    this.router.navigate(['add-product']);
+  }
+
+  viewProduct(id){
+    this.router.navigate(['view-product', id])
+  }
+
+  editProduct(id){
+    this.router.navigate(['edit-product', id])
+  }
+
+  deleteProduct(id){
+    this.productService.delete(id)
+    .subscribe(() => {
+      // update list of products here !!!
     })
   }
 

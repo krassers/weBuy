@@ -1,6 +1,7 @@
 package at.fhjoanneum.weBuy.model;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Product {
@@ -34,12 +37,20 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "supplierId")
+    @JsonIgnore
     private User supplier;
+
+
+    @Column(name = "supplierId",insertable = false, updatable = false)
+    private Long supplierId;
 
     @ManyToOne
     @JoinColumn(name = "customerId")
+    @JsonIgnore
     private User customer;
 
+    @Column(name = "customerId",insertable = false, updatable = false)
+    private Long customerId;
 
     public Product(long id, @NotNull(message = "Product name is required.") String name, String description, String category, 
     Double purchasePrice, Double sellingPrice, String status, String pictureUrl) {
@@ -151,4 +162,38 @@ public class Product {
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
     }
+
+	public User getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(User supplier) {
+		this.supplier = supplier;
+	}
+
+	public User getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(User customer) {
+		this.customer = customer;
+	}
+
+	public Long getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(Long supplierId) {
+		this.supplierId = supplierId;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+    
+    
 }

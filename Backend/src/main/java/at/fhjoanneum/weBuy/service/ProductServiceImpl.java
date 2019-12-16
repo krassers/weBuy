@@ -27,6 +27,7 @@ public class ProductServiceImpl implements ProductService {
     public Iterable<Product> getMyProducts(long id) {
         List<Product> products= productRepository.findBySupplierId(id);
         products.addAll(productRepository.findByCustomerId(id));
+
         return products;
     }
 

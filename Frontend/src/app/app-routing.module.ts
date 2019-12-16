@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
+import { ProductAdminComponent } from "./admin/products/product-admin/product-admin.component";
+import { ProductListPendingComponent } from "./admin/products/product-admin/product-list-pending/product-list-pending.component";
 import { ProductListComponent } from "./product/product-list/product-list.component";
 import { ProductAddComponent } from "./product/product-add/product-add.component";
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
@@ -29,6 +31,16 @@ const routes: Routes = [
   {
     path: "view-product/:id",
     component: ProductViewComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "admin/pending-products",
+    component: ProductListPendingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "admin/product/:id",
+    component: ProductAdminComponent,
     canActivate: [AuthGuard]
   }
 ];

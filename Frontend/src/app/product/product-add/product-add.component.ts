@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Status } from 'src/app/api/types';
+import { Product } from 'src/app/api/product';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-product-add',
@@ -17,6 +19,7 @@ export class ProductAddComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private userService: UserService,
     private router: Router,
     private toastr: ToastrService
   ) { }
@@ -29,7 +32,8 @@ export class ProductAddComponent implements OnInit {
       'purchasePrice': new FormControl(''),
       'sellingPrice': new FormControl(''),
       'status': new FormControl(''),
-      'pictureUrl': new FormControl('')
+      'pictureUrl': new FormControl(''),
+      'supplierId': new FormControl('')
 
     });
   }
@@ -38,7 +42,7 @@ export class ProductAddComponent implements OnInit {
     const product = this.productForm.value;
     product.status = Status.PENDING;
     this.productService.create(product)
-      .subscribe((response: any) => {
+      .subscribe((response: Product) => {
         this.toastr.success(`Added Product ${product.name} successfully!`)
         this.router.navigate(['/products']);
       })

@@ -1,0 +1,15 @@
+<div style="max-width: 1000px; margin: 0 auto">
+  <h1>Product List</h1>
+
+  <div class="card" *ngFor="let product of products">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <button class="btn btn-primary" (click)="viewProduct(product.id)">
+        View
+      </button>
+      <!-- <button class="btn btn-primary" (click)="editProduct(product.id)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button> -->
+    </div>
+  </div>
+</div>

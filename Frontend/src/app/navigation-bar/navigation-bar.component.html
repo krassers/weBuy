@@ -16,9 +16,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="/products">Products</a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">My Products</a>
-      </li>
+      <button class="btn btn-primary" (click)="navigateToMyProducts()">
+        My Products
+      </button>
     </ul>
     <ul class="nav navbar-nav">
       <li class="nav-item active" *ngIf="!(userService.loggedInChange | async)">

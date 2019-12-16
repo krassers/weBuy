@@ -2,6 +2,7 @@
 package at.fhjoanneum.weBuy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
 
     }
-
+    @Override
     public Boolean usernameExists(String username) {
         User existingUser = this.userRepository.findByUsername(username);
         if (existingUser == null) {
@@ -38,4 +39,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public Long getUserId(String username) throws ResourceNotFoundException {
+        User user = userRepository.findByUsername(username);
+        if(user == null) {
+             throw new ResourceNotFoundException("Username not found");
+        }
+        return user.getId();
+    }
 }

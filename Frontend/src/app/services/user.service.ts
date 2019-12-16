@@ -61,6 +61,7 @@ export class UserService {
           const token = res.headers
             .get("Authorization")
             .replace(/^Bearer /, "");
+          console.log("login header", res.headers);
           localStorage.setItem(this.accessTokenLocalStorageKey, token);
           console.log(this.jwtHelperService.decodeToken(token));
           this.loggedInChange.next(true);
@@ -79,5 +80,12 @@ export class UserService {
     this.loggedInChange.next(false);
     this.isAdminChange.next(false);
     this.router.navigate(["/login"]);
+  }
+
+  getUserId() {
+    const username = this.jwtHelperService.decodeToken(
+      localStorage.getItem(this.accessTokenLocalStorageKey)
+    ).sub;
+    return this.http.get(`/api/user/${username}`);
   }
 }

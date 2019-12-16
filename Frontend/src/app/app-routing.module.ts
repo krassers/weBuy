@@ -9,6 +9,7 @@ import { ProductEditComponent } from "./product/product-edit/product-edit.compon
 import { ProductViewComponent } from "./product/product-view/product-view.component";
 import { AuthGuard } from "./auth.guard";
 import { ProductApproveComponent } from './admin/products/product-approve/product-approve.component';
+import { MyProductsComponent } from "./product/my-products/my-products.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "products", pathMatch: "full" },
@@ -41,6 +42,11 @@ const routes: Routes = [
   {
     path: "admin/pending-products/approve/:id",
     component: ProductApproveComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "my-products/:userId",
+    component: MyProductsComponent,
     canActivate: [AuthGuard]
   }
 ];

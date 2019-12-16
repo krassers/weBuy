@@ -45,7 +45,7 @@ export class ProductAddComponent implements OnInit {
     product.supplierId = this.userId;
     this.productService.create(product).subscribe((response: Product) => {
       this.toastr.success(`Added Product ${product.name} successfully!`);
-      this.router.navigate(["/products"]);
+      this.router.navigate(["/my-products"]);
     });
   }
 }

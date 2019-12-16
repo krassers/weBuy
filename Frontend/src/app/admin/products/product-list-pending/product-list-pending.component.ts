@@ -49,6 +49,6 @@ export class ProductListPendingComponent implements OnInit {
   }
 
   onApprove(product: Product) {
-    this.router.navigateByUrl("admin/pending-products/approve/"+product.id)
+    this.router.navigateByUrl("admin/pending-products/approve/" + product.id)
   }
 }

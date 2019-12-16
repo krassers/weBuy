@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="login">
+  <form (ngSubmit)="login()">
+    <div class="col-md-4 offset-4">
+      <input
+        class="form-control input-login"
+        type="text"
+        placeholder="Username"
+        name="username"
+        [(ngModel)]="user.username"
+      />
+
+      <br />
+
+      <show-hide-password
+        size="lg"
+        icon="fontawesome"
+        btnStyle="info"
+        [btnOutline]="false"
+      >
+        <input
+          class="form-control input-login"
+          type="password"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="user.password"
+        />
+      </show-hide-password>
+
+      <br />
+      <button class="btn btn-outline-info btn-login" type="submit">
+        Login
+      </button>
+    </div>
+  </form>
+</div>

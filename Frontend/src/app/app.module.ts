@@ -13,13 +13,10 @@ import { ProductFormComponent } from "./product/product-form/product-form.compon
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"; // <== add the imports!
 import { UserService } from "./services/user.service";
-import {
-  ToastrService,
-  ToastrModule,
-  ToastNoAnimationModule
-} from "ngx-toastr";
+import { ToastNoAnimationModule, ToastrModule } from "ngx-toastr";
 import { JwtModule } from "@auth0/angular-jwt";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ShowHidePasswordModule } from "ngx-show-hide-password";
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -40,6 +37,7 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ShowHidePasswordModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
@@ -49,7 +47,8 @@ export function tokenGetter() {
         whitelistedDomains: ["localhost:4200"]
       }
     }),
-    ToastNoAnimationModule.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

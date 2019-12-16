@@ -1,11 +1,11 @@
 package at.fhjoanneum.weBuy.service;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.validation.annotation.Validated;
 
 import at.fhjoanneum.weBuy.model.Product;
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 @Validated
 public interface ProductService {
@@ -15,4 +15,6 @@ public interface ProductService {
     Product getProduct(@Min(value = 1L, message = "Invalid product ID.") long id);
 
     Product save(Product product);
+
+    public Iterable<Product> getMyProducts(long id);
 }

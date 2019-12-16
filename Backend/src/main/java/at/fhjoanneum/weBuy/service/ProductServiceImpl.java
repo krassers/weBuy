@@ -1,5 +1,7 @@
 package at.fhjoanneum.weBuy.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Iterable<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public Iterable<Product> getMyProducts(long id) {
+        List<Product> products= productRepository.findBySupplierId(id);
+        products.addAll(productRepository.findByCustomerId(id));
+        return products;
     }
 
     @Override

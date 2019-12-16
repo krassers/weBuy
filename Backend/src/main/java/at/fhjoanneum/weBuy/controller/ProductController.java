@@ -1,9 +1,9 @@
 package at.fhjoanneum.weBuy.controller;
 
-import at.fhjoanneum.weBuy.model.Product;
-import at.fhjoanneum.weBuy.service.ProductService;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.NotNull;
+import at.fhjoanneum.weBuy.model.Product;
+import at.fhjoanneum.weBuy.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
@@ -57,5 +58,10 @@ public class ProductController {
 
         productService.save(product);
         return productService.getAllProducts();
+    }
+
+    @GetMapping("/myProducts/{userId}")
+    public Iterable<Product> getMyProducts(@PathVariable long userId) {
+        return productService.getMyProducts(userId);
     }
 }

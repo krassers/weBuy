@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private toastrService: ToastrService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -31,5 +32,9 @@ export class LoginComponent implements OnInit {
         this.toastrService.error("wrong username or password", "NONONO");
       }
     );
+  }
+
+  register() {
+    this.router.navigate(["/register"]);
   }
 }

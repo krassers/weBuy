@@ -16,6 +16,7 @@ export class ProductAddComponent implements OnInit {
 
 
   productForm;
+  userId;
 
   constructor(
     private productService: ProductService,
@@ -25,6 +26,11 @@ export class ProductAddComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.userService.getUserId()
+    .subscribe(userId => {
+      this.userId = userId;
+    });
 
     this.productForm = new FormGroup({
       'name': new FormControl(''),
@@ -41,6 +47,7 @@ export class ProductAddComponent implements OnInit {
   addProduct() {
     const product = this.productForm.value;
     product.status = Status.PENDING;
+    product.supplierId = this.userId
     this.productService.create(product)
       .subscribe((response: Product) => {
         this.toastr.success(`Added Product ${product.name} successfully!`)

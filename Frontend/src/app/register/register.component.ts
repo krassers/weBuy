@@ -27,14 +27,14 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(2)
       ]),
-      email: new FormControl("", [
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", [
         Validators.required,
-        Validators.minLength(2)
+        Validators.minLength(8)
       ]),
-      password: new FormControl(),
-      street: new FormControl(),
-      city: new FormControl(),
-      zipcode: new FormControl()
+      street: new FormControl("", [Validators.required]),
+      city: new FormControl("", [Validators.required]),
+      zipcode: new FormControl("", [Validators.required])
     });
   }
 

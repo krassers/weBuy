@@ -14,13 +14,25 @@
           required
         />
       </div>
-      <!-- <div [hidden]="!name.pristine" class="alert alert-danger">
-        Name is required
-      </div> -->
+      <div
+        *ngIf="
+          userForm.controls.username.invalid &&
+          (userForm.controls.username.dirty ||
+            userForm.controls.username.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="userForm.controls.username.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="userForm.controls.username.errors.minlength">
+          Name must be at least 2 characters long.
+        </div>
+      </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input
-          type="text"
+          type="email"
           class="form-control"
           id="email"
           name="email"
@@ -28,9 +40,20 @@
           required
           formControlName="email"
         />
-        <!-- <div [hidden]="!email.pristine" class="alert alert-danger">
-          Email is required
-        </div> -->
+      </div>
+      <div
+        *ngIf="
+          userForm.controls.email.invalid &&
+          (userForm.controls.email.dirty || userForm.controls.email.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="userForm.controls.email.errors.required">
+          Email is required.
+        </div>
+        <div *ngIf="userForm.controls.email.errors.email">
+          Email must be in a correct format
+        </div>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
@@ -43,9 +66,21 @@
           required
           formControlName="password"
         />
-        <!-- <div [hidden]="!email.pristine" class="alert alert-danger">
-          Email is required
-        </div> -->
+      </div>
+      <div
+        *ngIf="
+          userForm.controls.password.invalid &&
+          (userForm.controls.password.dirty ||
+            userForm.controls.password.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="userForm.controls.password.errors.required">
+          Password is required.
+        </div>
+        <div *ngIf="userForm.controls.password.errors.minlength">
+          Password must be at least 8 characters long
+        </div>
       </div>
       <div class="form-group">
         <label for="street">Street</label>
@@ -58,9 +93,17 @@
           required
           formControlName="street"
         />
-        <!-- <div [hidden]="street.valid" class="alert alert-danger">
-          Street is required
-        </div> -->
+      </div>
+      <div
+        *ngIf="
+          userForm.controls.street.invalid &&
+          (userForm.controls.street.dirty || userForm.controls.street.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="userForm.controls.street.errors.required">
+          Street is required.
+        </div>
       </div>
       <div class="form-group">
         <label for="city">City</label>
@@ -73,9 +116,17 @@
           required
           formControlName="city"
         />
-        <!-- <div [hidden]="!city.pristine" class="alert alert-danger">
-          City is required
-        </div> -->
+      </div>
+      <div
+        *ngIf="
+          userForm.controls.city.invalid &&
+          (userForm.controls.city.dirty || userForm.controls.city.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="userForm.controls.city.errors.required">
+          City is required.
+        </div>
       </div>
       <div class="form-group">
         <label for="zipcode">Zip</label>
@@ -88,9 +139,17 @@
           required
           formControlName="zipcode"
         />
-        <!-- <div [hidden]="!zipcode.pristine" class="alert alert-danger">
-          City is required
-        </div> -->
+      </div>
+      <div
+        *ngIf="
+          userForm.controls.zipcode.invalid &&
+          (userForm.controls.zipcode.dirty || userForm.controls.zipcode.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="userForm.controls.zipcode.errors.required">
+          Zip code is required.
+        </div>
       </div>
       <button type="submit" [disabled]="userForm.invalid" class="btn btn-info">
         Submit

@@ -41,7 +41,7 @@ public class ProductController {
     }
 
     // List Pending Products
-    @RequestMapping(value = "status/{status}", method = RequestMethod.GET)
+    @RequestMapping(value = "/status/{status}", method = RequestMethod.GET)
     public Iterable<Product> getProductByStatus(@PathVariable String status) throws Throwable {
         return productService.findByStatus(status);
     }

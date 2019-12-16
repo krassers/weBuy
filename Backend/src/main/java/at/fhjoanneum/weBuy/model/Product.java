@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product {
 
@@ -35,6 +37,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "supplierId",insertable = false, updatable = false)
+    @JsonIgnore
     private User supplier;
 
 
@@ -43,6 +46,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "customerId",insertable = false, updatable = false)
+    @JsonIgnore
     private User customer;
 
     @Column(name = "customerId")

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import {Router} from '@angular/router';
 import { Product } from 'src/app/api/product';
+import { Status } from 'src/app/api/types';
 
 @Component({
   selector: 'app-product-list',
@@ -20,7 +21,7 @@ export class ProductListComponent implements OnInit {
   }
 
   getProducts() {
-    this.productService.getAll()
+    this.productService.getByStatus(Status.APPROVED)
     .subscribe((response: any) => {
       this.products = response;
       console.log('###', this.products);

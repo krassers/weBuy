@@ -77,6 +77,8 @@ public class ProductController {
     @PostMapping(value = { "", "/" })
     public @NotNull Iterable<Product> saveProduct(@RequestBody Product product) {
 
+        System.out.println("#####################supplier"+product.getSupplier());
+        System.out.println("#####################supplierid"+product.getSupplierId());
         productService.save(product);
         return productService.getAllProducts();
     }

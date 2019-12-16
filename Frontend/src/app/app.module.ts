@@ -10,8 +10,6 @@ import { CheckoutComponent } from "./checkout/checkout.component";
 import { ProductListComponent } from "./product/product-list/product-list.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
-import { ProductAdminComponent } from "./admin/products/product-admin/product-admin.component";
-import { ProductListPendingComponent } from "./admin/products/product-admin/product-list-pending/product-list-pending.component";
 import { UserService } from "./services/user.service";
 import { ToastrModule } from "ngx-toastr";
 import { JwtModule } from "@auth0/angular-jwt";
@@ -21,7 +19,9 @@ import { NavigationBarComponent } from "./navigation-bar/navigation-bar.componen
 import { ProductAddComponent } from "./product/product-add/product-add.component";
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
 import { ProductViewComponent } from "./product/product-view/product-view.component";
+import { ProductApproveComponent } from './admin/products/product-approve/product-approve.component';
 import { MyProductsComponent } from "./product/my-products/my-products.component";
+import { ProductListPendingComponent } from './admin/products/product-list-pending/product-list-pending.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -34,12 +34,12 @@ export function tokenGetter() {
     RegisterComponent,
     CheckoutComponent,
     ProductListComponent,
-    ProductAdminComponent,
     ProductListPendingComponent,
     ProductAddComponent,
     ProductEditComponent,
     ProductViewComponent,
     NavigationBarComponent,
+    ProductApproveComponent,
     MyProductsComponent
   ],
   imports: [

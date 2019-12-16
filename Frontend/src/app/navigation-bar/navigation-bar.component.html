@@ -13,11 +13,14 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="nav navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/products">Products</a>
-      </li>
+      <button class="btn btn-primary" routerLink="/products">
+        Products
+      </button>
       <button class="btn btn-primary" (click)="navigateToMyProducts()">
         My Products
+      </button>
+      <button class="btn btn-primary" routerLink="/admin/pending-products">
+        Admin
       </button>
     </ul>
     <ul class="nav navbar-nav">

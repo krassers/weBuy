@@ -88,4 +88,14 @@ export class UserService {
     ).sub;
     return this.http.get(`/api/user/${username}`) as Observable<number>;
   }
+
+  getRole() {
+    if (localStorage.getItem(this.accessTokenLocalStorageKey)) {
+      return this.jwtHelperService.decodeToken(
+        localStorage.getItem(this.accessTokenLocalStorageKey)
+      ).authorities[0] as string;
+    } else {
+      return undefined;
+    }
+  }
 }

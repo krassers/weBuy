@@ -18,9 +18,9 @@ public class Product {
 
     private String category;
 
-    private Double purchase_price;
+    private Double purchasePrice;
 
-    private Double selling_price;
+    private Double sellingPrice;
 
     private String status;
 
@@ -36,15 +36,15 @@ public class Product {
 
 
     public Product(long id, @NotNull(message = "Product name is required.") String name, String description, String category, 
-    Double purchase_price, Double selling_price, String status, String pictureUrl) {
+    Double purchasePrice, Double sellingPrice, String status, String pictureUrl) {
 
     
         this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
-        this.purchase_price = purchase_price;
-        this.selling_price = selling_price;
+        this.purchasePrice = purchasePrice;
+        this.sellingPrice = sellingPrice;
         this.status = status;
         this.pictureUrl = pictureUrl;
     }
@@ -69,17 +69,17 @@ public class Product {
     }
 
     /**
-     * @return the purchase_price
+     * @return the purchasePrice
      */
-    public Double getPurchase_price() {
-        return purchase_price;
+    public Double getpurchasePrice() {
+        return purchasePrice;
     }
 
     /**
-     * @param purchase_price the purchase_price to set
+     * @param purchasePrice the purchasePrice to set
      */
-    public void setPurchase_price(Double purchase_price) {
-        this.purchase_price = purchase_price;
+    public void setpurchasePrice(Double purchasePrice) {
+        this.purchasePrice = purchasePrice;
     }
 
     /**
@@ -111,17 +111,17 @@ public class Product {
     }
 
     /**
-     * @return the selling_price
+     * @return the sellingPrice
      */
-    public Double getSelling_price() {
-        return selling_price;
+    public Double getsellingPrice() {
+        return sellingPrice;
     }
 
     /**
-     * @param selling_price the selling_price to set
+     * @param sellingPrice the sellingPrice to set
      */
-    public void setSelling_price(Double selling_price) {
-        this.selling_price = selling_price;
+    public void setsellingPrice(Double sellingPrice) {
+        this.sellingPrice = sellingPrice;
     }
 
     /**

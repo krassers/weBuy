@@ -28,6 +28,7 @@ export class ProductService {
     }
 
     create(product: Product) {
+        console.log('### new Product:', product);
         return this.http.post('/api/products', product); 
     }
 

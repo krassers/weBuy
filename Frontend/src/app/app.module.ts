@@ -4,7 +4,6 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
-import { LogoutComponent } from "./logout/logout.component";
 import { RegisterComponent } from "./register/register.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { ProductListComponent } from "./product/product-list/product-list.component";
@@ -28,7 +27,6 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     LoginComponent,
-    LogoutComponent,
     RegisterComponent,
     CheckoutComponent,
     ProductListComponent,

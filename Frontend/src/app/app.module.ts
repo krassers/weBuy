@@ -12,6 +12,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductAdminComponent } from './admin/products/product-admin/product-admin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CheckoutComponent,
     ProductListComponent,
     ProductFormComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProductAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ProductAdminComponent } from './admin/products/product-admin/product-admin.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,10 @@ const routes: Routes = [
   {path: 'add', component: ProductFormComponent},
   {path: 'edit/:id', component: ProductFormComponent},
   {path: 'products/:id', component: ProductFormComponent},
-  {path: 'shopping-cart', component: ShoppingCartComponent}
+  {path: 'shopping-cart', component: ShoppingCartComponent},
+  //{path: 'my-products', component: },
+  //{path: 'admin/pending-products', component: },
+  {path: 'admin/product/:id', component: ProductAdminComponent}
 ]; 
 
 @NgModule({

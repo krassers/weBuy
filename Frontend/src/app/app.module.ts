@@ -13,6 +13,7 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductAdminComponent } from './admin/products/product-admin/product-admin.component';
+import { ProductListPendingComponent } from './admin/products/product-admin/product-list-pending/product-list-pending.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductAdminComponent } from './admin/products/product-admin/product-ad
     ProductListComponent,
     ProductFormComponent,
     ShoppingCartComponent,
-    ProductAdminComponent
+    ProductAdminComponent,
+    ProductListPendingComponent
   ],
   imports: [
     BrowserModule,

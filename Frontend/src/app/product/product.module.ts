@@ -4,7 +4,6 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 
 
-
 @NgModule({
   declarations: [ProductListComponent, ProductFormComponent],
   imports: [
@@ -12,3 +11,4 @@ import { ProductFormComponent } from './product-form/product-form.component';
   ]
 })
 export class ProductModule { }
+ 

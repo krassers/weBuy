@@ -8,6 +8,7 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProductAdminComponent } from './admin/products/product-admin/product-admin.component';
+import { ProductListPendingComponent } from './admin/products/product-admin/product-list-pending/product-list-pending.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path: 'products/:id', component: ProductFormComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
   //{path: 'my-products', component: },
-  //{path: 'admin/pending-products', component: },
+  {path: 'admin/pending-products', component: ProductListPendingComponent},
   {path: 'admin/product/:id', component: ProductAdminComponent}
 ]; 
 

@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
   getProducts() {
     this.productService.getAll()
     .subscribe((response: any) => {
-      this.products = response._embedded.products;
+      this.products = response;
       console.log('###', this.products);
     })
   }

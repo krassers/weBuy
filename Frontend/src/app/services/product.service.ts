@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { pipe } from 'rxjs';
 import { Product } from '../api/product';
 
@@ -20,6 +21,10 @@ export class ProductService {
         return this.http.get('/api/products/' + id).pipe(map((res:any) => {
             return res;
         }));
+    }
+
+    getByStatus(status: string):Observable<any> {
+        return this.http.get('/api/products/status/'+ status);
     }
 
     getAll(){

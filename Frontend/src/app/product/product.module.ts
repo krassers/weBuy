@@ -6,7 +6,6 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 
 
-
 @NgModule({
   declarations: [ProductListComponent, ProductAddComponent, ProductEditComponent, ProductViewComponent],
   imports: [
@@ -14,3 +13,4 @@ import { ProductViewComponent } from './product-view/product-view.component';
   ]
 })
 export class ProductModule { }
+ 

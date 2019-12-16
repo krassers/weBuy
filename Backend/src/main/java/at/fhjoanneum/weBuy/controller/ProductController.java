@@ -39,6 +39,27 @@ public class ProductController {
         return productService.getProduct(id);
     }
 
+    // List Pending Products
+    @RequestMapping(value = "status/{status}", method = RequestMethod.GET)
+    public Iterable<Product> getProductByStatus(@PathVariable String status) throws Throwable {
+        return productService.findByStatus(status);
+    }
+
+    // Update existing product
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Product updateProduct(@PathVariable Long id, @RequestBody Product product) throws Throwable {
+        return productService.save(product);
+    }
+
+    // Delete existing product
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public Product deleteProduct(@PathVariable Long id) throws Throwable {
+        Product product = productService.getProduct(id);
+        productService.delete(id);
+        return product;
+    }
+
+
     
     // old code down here, replace with above code
 

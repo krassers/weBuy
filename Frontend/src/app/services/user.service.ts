@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { User } from "../model/user";
 import { map } from "rxjs/operators";
-import { Subject } from "rxjs";
+import { Subject, BehaviorSubject } from "rxjs";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from "@angular/router";
 
@@ -10,8 +10,10 @@ import { Router } from "@angular/router";
 export class UserService {
   isAdmin: boolean;
   isLoggedIn = false;
-  loggedInChange: Subject<boolean> = new Subject<boolean>();
-  isAdminChange: Subject<boolean> = new Subject<boolean>();
+  loggedInChange: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+  isAdminChange: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   jwtHelperService: JwtHelperService;
 
   users: Array<User>;
@@ -26,10 +28,8 @@ export class UserService {
         "Token expiration date: " +
           this.jwtHelperService.getTokenExpirationDate(token)
       );
-      this.isLoggedIn = !this.jwtHelperService.isTokenExpired(token);
-      this.loggedInChange.subscribe(value => {
-        this.isLoggedIn = value;
-      });
+      this.loggedInChange.next(!this.jwtHelperService.isTokenExpired(token));
+
       this.isAdminChange.subscribe(value => {
         this.isAdmin = value;
       });

@@ -21,6 +21,7 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
 
     this.productForm = new FormGroup({
+      'id': new FormControl(''),
       'name': new FormControl(''),
       'description': new FormControl(''),
       'purchasePrice': new FormControl(''),

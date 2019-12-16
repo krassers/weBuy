@@ -4,11 +4,10 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
-import { ProductFormComponent } from './product/product-form/product-form.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { ProductViewComponent } from './product/product-view/product-view.component';
 
 
 const routes: Routes = [
@@ -20,8 +19,7 @@ const routes: Routes = [
   {path: 'products', component: ProductListComponent},
   {path: 'add-product', component: ProductAddComponent},
   {path: 'edit-product/:id', component: ProductEditComponent},
-  {path: 'products/:id', component: ProductFormComponent},
-  {path: 'shopping-cart', component: ShoppingCartComponent}
+  {path: 'view-product/:id', component: ProductViewComponent},
 ]; 
 
 @NgModule({

@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Product {
 
@@ -36,20 +34,18 @@ public class Product {
     private String pictureUrl;
 
     @ManyToOne
-    @JoinColumn(name = "supplierId")
-    @JsonIgnore
+    @JoinColumn(name = "supplierId",insertable = false, updatable = false)
     private User supplier;
 
 
-    @Column(name = "supplierId",insertable = false, updatable = false)
+    @Column(name = "supplierId")
     private Long supplierId;
 
     @ManyToOne
-    @JoinColumn(name = "customerId")
-    @JsonIgnore
+    @JoinColumn(name = "customerId",insertable = false, updatable = false)
     private User customer;
 
-    @Column(name = "customerId",insertable = false, updatable = false)
+    @Column(name = "customerId")
     private Long customerId;
 
     public Product(long id, @NotNull(message = "Product name is required.") String name, String description, String category, 

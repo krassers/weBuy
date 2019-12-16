@@ -2,13 +2,13 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { RegisterComponent } from "./register/register.component";
 import { LoginComponent } from "./login/login.component";
-import { ProductAdminComponent } from "./admin/products/product-admin/product-admin.component";
-import { ProductListPendingComponent } from "./admin/products/product-admin/product-list-pending/product-list-pending.component";
+import { ProductListPendingComponent } from "./admin/products/product-list-pending/product-list-pending.component";
 import { ProductListComponent } from "./product/product-list/product-list.component";
 import { ProductAddComponent } from "./product/product-add/product-add.component";
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
 import { ProductViewComponent } from "./product/product-view/product-view.component";
 import { AuthGuard } from "./auth.guard";
+import { ProductApproveComponent } from './admin/products/product-approve/product-approve.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "products", pathMatch: "full" },
@@ -39,8 +39,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "admin/product/:id",
-    component: ProductAdminComponent,
+    path: "admin/pending-products/approve/:id",
+    component: ProductApproveComponent,
     canActivate: [AuthGuard]
   }
 ];

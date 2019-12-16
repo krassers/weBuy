@@ -5,8 +5,8 @@
         <div>{{product.name}}</div>
         <div>{{product.description}}</div>
         <div>
-            <button type="button" class="btn btn-success">Accept</button>
-            <button type="button" class="btn btn-danger">Reject</button>
+            <button type="button" class="btn btn-success" (click)="onAccept(product)">Accept</button>
+            <button type="button" class="btn btn-danger" (click)="onReject(product)">Reject</button>
          </div>
     </li>
   </ul>
@@ -17,9 +17,8 @@
         <div>{{product.name}}</div>
         <div>{{product.description}}</div>
         <div>
-            <button type="button" class="btn btn-primary">Approve</button>
+            <button type="button" class="btn btn-primary" (click)="onApprove(product)">Approve</button>
         </div>
     </li>
   </ul>
-  
 </div>

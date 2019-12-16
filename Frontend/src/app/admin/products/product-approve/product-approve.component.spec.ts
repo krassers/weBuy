@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductAdminComponent } from './product-admin.component';
+import { ProductApproveComponent } from './product-approve.component';
 
-describe('ProductAdminComponent', () => {
-  let component: ProductAdminComponent;
-  let fixture: ComponentFixture<ProductAdminComponent>;
+describe('ProductApproveComponent', () => {
+  let component: ProductApproveComponent;
+  let fixture: ComponentFixture<ProductApproveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductAdminComponent ]
+      declarations: [ ProductApproveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductAdminComponent);
+    fixture = TestBed.createComponent(ProductApproveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

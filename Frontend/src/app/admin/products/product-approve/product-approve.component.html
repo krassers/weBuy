@@ -1,5 +1,5 @@
-<form [formGroup]="productForm" style="max-width: 1000px; margin: 0 auto" (ngSubmit)="editProduct()">
-    <h1>Edit product</h1>
+<form [formGroup]="productForm" style="max-width: 1000px; margin: 0 auto" (ngSubmit)="approveProduct()">
+    <h1>Approve product</h1>
     <div class="form-group">
         <label>Name:</label>
         <input type="text" formControlName="name" class="form-control">
@@ -9,23 +9,18 @@
         <input type="text" formControlName="description" class="form-control">
     </div>
     <div class="form-group">
-        <label>Purchase price:</label>
-        <input type="text" formControlName="purchasePrice" class="form-control">
+        <label>Buying price:</label>
+        <input type="text" formControlName="purchasePrice" class="form-control" disabled >
     </div>
     <div class="form-group">
         <label>Selling price:</label>
         <input type="text" formControlName="sellingPrice" class="form-control">
     </div>
-    <div class="form-group">
-        <label>Status:</label>
-        <input type="text" formControlName="status" class="form-control">
-    </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label>Picture URL:</label>
         <input type="text" formControlName="pictureUrl" class="form-control">
-    </div>
-
+    </div> -->
     <div class="btn">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Approve</button>
     </div>
 </form>

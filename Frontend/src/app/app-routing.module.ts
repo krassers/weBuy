@@ -8,8 +8,9 @@ import { ProductAddComponent } from "./product/product-add/product-add.component
 import { ProductEditComponent } from "./product/product-edit/product-edit.component";
 import { ProductViewComponent } from "./product/product-view/product-view.component";
 import { AuthGuard } from "./auth.guard";
-import { ProductApproveComponent } from './admin/products/product-approve/product-approve.component';
+import { ProductApproveComponent } from "./admin/products/product-approve/product-approve.component";
 import { MyProductsComponent } from "./product/my-products/my-products.component";
+import { AdminGuard } from "./admin.guard";
 
 const routes: Routes = [
   { path: "", redirectTo: "products", pathMatch: "full" },
@@ -37,15 +38,15 @@ const routes: Routes = [
   {
     path: "admin/pending-products",
     component: ProductListPendingComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
   },
   {
     path: "admin/pending-products/approve/:id",
     component: ProductApproveComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
   },
   {
-    path: "my-products/:userId",
+    path: "my-products",
     component: MyProductsComponent,
     canActivate: [AuthGuard]
   }

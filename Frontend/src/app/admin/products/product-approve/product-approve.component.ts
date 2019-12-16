@@ -25,7 +25,8 @@ export class ProductApproveComponent implements OnInit {
       'purchasePrice': new FormControl(''),
       'sellingPrice': new FormControl(''),
       'status': new FormControl(''),
-      'pictureUrl': new FormControl('')
+      'pictureUrl': new FormControl(''),
+      'supplierId': new FormControl('')
     });
    }
 

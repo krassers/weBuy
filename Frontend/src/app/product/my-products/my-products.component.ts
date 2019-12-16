@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "src/app/api/product";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "src/app/services/product.service";
+import { UserService } from "src/app/services/user.service";
 
 @Component({
   selector: "app-my-products",
@@ -14,21 +15,28 @@ export class MyProductsComponent implements OnInit {
   userId: number;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
-    public productService: ProductService
+    public productService: ProductService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
     // Convert route param to number
-    this.userId = +this.route.snapshot.params["userId"];
-    this.productService.getMyProducts(this.userId).subscribe(products => {
-      this.offers = products.filter(
-        product => product.supplierId === this.userId
-      );
-      this.purchases = products.filter(
-        product => product.customerId === this.userId
-      );
-      console.log(products);
-    });
+    this.userService.getUserId().subscribe(userId =>
+      this.productService.getMyProducts(userId).subscribe(products => {
+        this.offers = products.filter(
+          product => product.supplierId === userId
+        );
+        this.purchases = products.filter(
+          product => product.customerId === userId
+        );
+        console.log(products);
+      })
+    );
+  }
+
+  createProduct() {
+    this.router.navigate(["add-product"]);
   }
 }

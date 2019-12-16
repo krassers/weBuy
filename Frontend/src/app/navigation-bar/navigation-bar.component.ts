@@ -20,8 +20,6 @@ export class NavigationBarComponent implements OnInit {
   }
 
   navigateToMyProducts() {
-    this.userService
-      .getUserId()
-      .subscribe(userId => this.router.navigate([`/my-products/${userId}`]));
+    this.router.navigate([`/my-products`])
   }
 }

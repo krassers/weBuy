@@ -28,10 +28,6 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-  createProduct(){
-    this.router.navigate(['add-product']);
-  }
-
   viewProduct(id){
     this.router.navigate(['view-product', id])
   }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { User } from "../model/user";
 import { map } from "rxjs/operators";
-import { Subject, BehaviorSubject } from "rxjs";
+import { Subject, BehaviorSubject, Observable } from "rxjs";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from "@angular/router";
 
@@ -82,10 +82,20 @@ export class UserService {
     this.router.navigate(["/login"]);
   }
 
-  getUserId() {
+  getUserId():Observable<number> {
     const username = this.jwtHelperService.decodeToken(
       localStorage.getItem(this.accessTokenLocalStorageKey)
     ).sub;
-    return this.http.get(`/api/user/${username}`);
+    return this.http.get(`/api/user/${username}`) as Observable<number>;
+  }
+
+  getRole() {
+    if (localStorage.getItem(this.accessTokenLocalStorageKey)) {
+      return this.jwtHelperService.decodeToken(
+        localStorage.getItem(this.accessTokenLocalStorageKey)
+      ).authorities[0] as string;
+    } else {
+      return undefined;
+    }
   }
 }

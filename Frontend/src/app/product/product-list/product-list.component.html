@@ -4,12 +4,15 @@
         <button class="btn btn-primary" (click)="createProduct()">Add new product</button>
     </div>
     <div class="card" *ngFor="let product of products">
+        <h1>{{product._links.product.href}}</h1>
         <div class="card-body">
             <div class="card-title">
                 {{product.name}} | {{product.price}} € | {{product.status}}
             </div>
             <div class="card-text">{{product.description}}</div>
-            <button class="btn btn-primary" [routerLink]="'/products/' + product.id">View Details of {{product.id}}</button>
+
+            
+            <button class="btn btn-primary" href="product._links.product.href">View Details of {{product.id}}</button>
             <button class="btn btn-danger" (click)="deleteProduct(product)">Delete</button>
         </div>
     </div>

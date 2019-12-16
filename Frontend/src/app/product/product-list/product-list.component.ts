@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import {Router} from '@angular/router';
 import { Product } from 'src/app/api/product';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductListComponent implements OnInit {
   
-  products: Observable<any[]>;
+  products: Array<Product>
   
   constructor(private productService: ProductService, private router: Router) { }
 
@@ -24,7 +23,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getAll()
     .subscribe((response: any) => {
       this.products = response._embedded.products;
-      console.log('###', response);
+      console.log('###', this.products);
     })
   }
 

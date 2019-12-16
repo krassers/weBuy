@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { pipe } from 'rxjs';
+
 
 @Injectable({
     providedIn: 'root'
@@ -8,6 +10,8 @@ import { map } from 'rxjs/operators';
 export class ProductService {
 
     products = [];
+    public headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
 
     constructor(private http: HttpClient) {}
 
@@ -17,13 +21,18 @@ export class ProductService {
         }));
     }
 
-    getAll() {
-        return this.http.get('/api/products');
-        // .pipe(
-        //     map((response: any) => {
-        //         return response._embedded.products;
-        //     })
-        // );
+    // getAll() {
+    //     return this.http.get('/api/products', {headers: this.headers})
+    //     // .pipe(
+    //     //     map((response: any) => {
+    //     //         return response._embedded.products;
+    //     //     })
+    //     // );
+    // }
+
+    getAll(){
+        let headers = new HttpHeaders().set('Accept', 'application/json');
+        return this.http.get('/api/products', {headers});
     }
 
     create(product: any) {

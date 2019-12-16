@@ -27,6 +27,12 @@ export class UserService {
           this.jwtHelperService.getTokenExpirationDate(token)
       );
       this.isLoggedIn = !this.jwtHelperService.isTokenExpired(token);
+      this.loggedInChange.subscribe(value => {
+        this.isLoggedIn = value;
+      });
+      this.isAdminChange.subscribe(value => {
+        this.isAdmin = value;
+      });
     }
   }
 
@@ -40,9 +46,6 @@ export class UserService {
   }
 
   public createUser(user: User) {
-    let headers = new HttpHeaders();
-    headers.set("Accept", "application/json");
-
     return this.http.post("/api/registration", user);
   }
 
@@ -70,5 +73,11 @@ export class UserService {
           // this.navHome();
         })
       );
+  }
+  logout() {
+    localStorage.removeItem(this.accessTokenLocalStorageKey);
+    this.loggedInChange.next(false);
+    this.isAdminChange.next(false);
+    this.router.navigate(["/login"]);
   }
 }

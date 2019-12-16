@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "../services/user.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-navigation-bar',
-  templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  selector: "app-navigation-bar",
+  templateUrl: "./navigation-bar.component.html",
+  styleUrls: ["./navigation-bar.component.css"]
 })
 export class NavigationBarComponent implements OnInit {
+  constructor(public userService: UserService, public router: Router) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  logout() {
+    this.userService.logout();
   }
-
+  login() {
+    this.router.navigate(["/login"]);
+  }
 }

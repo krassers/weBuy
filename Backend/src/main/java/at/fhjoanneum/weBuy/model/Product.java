@@ -8,7 +8,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @NotNull(message = "Product name is required.")
     @Basic(optional = false)
@@ -34,8 +34,11 @@ public class Product {
     @JoinColumn(name = "customer_id")
     private User customer;
 
-    public Product(Long id, @NotNull(message = "Product name is required.") String name, String description,
-            String category, Double purchase_price, Double selling_price, String status, String pictureUrl) {
+
+    public Product(long id, @NotNull(message = "Product name is required.") String name, String description, String category, 
+    Double purchase_price, Double selling_price, String status, String pictureUrl) {
+
+    
         this.id = id;
         this.name = name;
         this.description = description;
@@ -49,11 +52,11 @@ public class Product {
     public Product() {
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

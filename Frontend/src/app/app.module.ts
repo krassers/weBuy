@@ -7,11 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
-import { ProductFormComponent } from './product/product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductAddComponent } from './product/product-add/product-add.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { ProductViewComponent } from './product/product-view/product-view.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     CheckoutComponent,
     ProductListComponent,
-    ProductFormComponent,
-    ShoppingCartComponent
+    ProductAddComponent,
+    ProductEditComponent,
+    ProductViewComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

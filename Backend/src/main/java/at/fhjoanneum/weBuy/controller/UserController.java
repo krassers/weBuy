@@ -8,13 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import at.fhjoanneum.weBuy.model.User;
 import at.fhjoanneum.weBuy.service.UserService;
+import at.fhjoanneum.weBuy.validation.UserExistsException;
 
 @RestController
+//@RequestMapping("/api")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -33,13 +41,20 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String registration(@RequestBody @Valid User user) {
-        userService.save(user);
-
+    public User registration(@RequestBody @Valid User user) {
+        User registered = null;
+    try {
+        registered = userService.save(user);
+    }
+    catch (UserExistsException ex) {
+        
+throw new ResponseStatusException(HttpStatus.CONFLICT, "User already exists", ex);
+    }
+  
         // securityService.autoLogin(userForm.getUsername(),
         // userForm.getPasswordConfirm());
 
-        return "redirect:/login";
+        return registered;
     }
 
     @RequestMapping("/user")

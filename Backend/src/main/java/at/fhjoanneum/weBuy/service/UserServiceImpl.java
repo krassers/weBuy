@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import at.fhjoanneum.weBuy.model.User;
 import at.fhjoanneum.weBuy.repository.UserRepository;
+import at.fhjoanneum.weBuy.validation.UserExistsException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -17,19 +18,24 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public void save(User user) {
-        try {
-            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-            user.setRole(user.getRole());
-            userRepository.save(user);
-            // return user;
-        } catch (Error error) {
+    public User save(User user) throws UserExistsException  {
+        if (usernameExists(user.getUsername())) {
+            throw new UserExistsException("User already exists");
         }
 
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRole(user.getRole());
+        return userRepository.save(user);
+
     }
 
-    @Override
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public Boolean usernameExists(String username) {
+        User existingUser = this.userRepository.findByUsername(username);
+        if (existingUser == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
+
 }

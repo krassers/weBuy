@@ -11,7 +11,7 @@
 
         <div *ngIf="product.status==='RESERVED'">
             
-            <button class="btn btn-success">Pay</button>
+            <button class="btn btn-success" (click)="createOrderAndPay(product)">Pay</button>
             <p>(By clicking Pay you will be redirected to the payment service!)</p>
         </div>
 

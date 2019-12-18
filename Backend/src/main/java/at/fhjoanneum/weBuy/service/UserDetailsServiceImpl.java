@@ -17,11 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import at.fhjoanneum.weBuy.repository.UserRepository;
 
-@Service("userDetailsService") // It has to be annotated with @Service.
+@Service // It has to be annotated with @Service.
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private BCryptPasswordEncoder encoder;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -56,7 +56,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (userRepository.count() == 0) {
             at.fhjoanneum.weBuy.model.User admin = new at.fhjoanneum.weBuy.model.User();
             admin.setUsername("admin");
-            admin.setPassword(encoder.encode("12345"));
+            admin.setPassword(passwordEncoder.encode("12345"));
             admin.setRole("admin");
             userRepository.save(admin);
 

@@ -18,8 +18,4 @@ export class NavigationBarComponent implements OnInit {
   login() {
     this.router.navigate(["/login"]);
   }
-
-  navigateToMyProducts() {
-    this.router.navigate([`/my-products`])
-  }
 }

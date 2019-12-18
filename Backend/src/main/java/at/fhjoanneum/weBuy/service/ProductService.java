@@ -21,5 +21,6 @@ public interface ProductService {
     Product save(Product product);
 
     public Iterable<Product> getMyProducts(long id);
+    
     void delete(Long id);
 }

@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public User save(User user) throws UserExistsException  {
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
             throw new UserExistsException("User already exists");
         }
 
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(user.getRole());
         return userRepository.save(user);
 

@@ -23,16 +23,9 @@ import at.fhjoanneum.weBuy.service.UserService;
 import at.fhjoanneum.weBuy.validation.UserExistsException;
 
 @RestController
-// @RequestMapping("/api")
 public class UserController {
     @Autowired
     private UserService userService;
-
-    // @Autowired
-    // private SecurityService securityService;
-
-    // @Autowired
-    // private UserValidator userValidator;
 
     @GetMapping("/registration")
     public String registration(Model model) {

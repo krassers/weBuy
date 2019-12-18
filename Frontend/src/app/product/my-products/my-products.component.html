@@ -1,8 +1,10 @@
 <div style="max-width: 1000px; margin: 0 auto">
   <h1>My Products</h1>
 
-  <div> 
-    <button class="btn btn-primary" (click)="createProduct()">Add new product</button>
+  <div>
+    <button class="btn btn-primary" (click)="createProduct()">
+      Add new product
+    </button>
   </div>
 
   <h2>Offered Products</h2>
@@ -11,7 +13,10 @@
       <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">{{ product.description }}</p>
       <p class="card-text">Status: {{ product.status }}</p>
-      <button class="btn btn-primary" (click)="viewProduct(product.id)">
+      <button
+        class="btn btn-primary"
+        [routerLink]="['/view-product/', product.id]"
+      >
         View
       </button>
       <!-- <button class="btn btn-primary" (click)="editProduct(product.id)">Edit</button>

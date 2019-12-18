@@ -13,15 +13,27 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="nav navbar-nav mr-auto">
-      <button class="btn btn-primary" routerLink="/products">
+      <button
+        class="btn btn-primary"
+        routerLink="/products"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Products
       </button>
-      <button class="btn btn-primary" (click)="navigateToMyProducts()">
+      <button
+        class="btn btn-primary"
+        routerLink="/my-products"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         My Products
       </button>
       <button
         class="btn btn-primary"
         routerLink="/admin/pending-products"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
         *ngIf="this.userService.getRole() === 'ROLE_ADMIN'"
       >
         Admin

@@ -1,4 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
 #toast-container > div {
   opacity: 1;
+}
+
+.navbar-custom {
+  background-color: #E51400;
+}
+
+.btn-custom {
+  background-color: #E51400;
+}
+
+.btn-custom:hover {
+  background-color: #FFFEFF;
 }

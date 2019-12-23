@@ -1,24 +1,24 @@
-<div class="login">
+<div class="container">
   <form (ngSubmit)="login()">
-    <div class="col-md-4 offset-4">
+    <div class="card-body">
+      <h3>Login</h3>
       <input
-        class="form-control input-login"
+        class="form-control"
         type="text"
         placeholder="Username"
         name="username"
         [(ngModel)]="user.username"
       />
-
       <br />
 
       <show-hide-password
-        size="lg"
+        size="md"
         icon="fontawesome"
-        btnStyle="info"
-        [btnOutline]="false"
+        btnStyle=""
+        [btnOutline]=""
       >
         <input
-          class="form-control input-login"
+          class="form-control"
           type="password"
           placeholder="Password"
           name="password"
@@ -27,11 +27,11 @@
       </show-hide-password>
 
       <br />
-      <button class="btn btn-outline-info btn-login" type="submit">
+      <button class="btn btn-success" type="submit">
         Login
       </button>
       <button
-        class="btn btn-outline-info btn-register"
+        class="btn btn-primary"
         type="button"
         (click)="register()"
       >

@@ -5,7 +5,6 @@ import { Product } from 'src/app/api/product';
 import { Status } from 'src/app/api/types';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
-import { map } from "rxjs/operators";
 
 @Component({
   selector: 'app-product-view',
@@ -72,7 +71,7 @@ export class ProductViewComponent implements OnInit {
     //   map((response) => {return response})
     // )
 
-    this.http.post(`https://gateway.gear.mycelium.com/gateways/1e57f2ac18c3a4fdc55feaa3fe0845824ea13f3a41ef09443370033754ae476a/orders?amount=${product.sellingPrice}&callback_data=yourCustomData`, {})
+    this.http.post(`https://gateway.gear.mycelium.com/gateways/1e57f2ac18c3a4fdc55feaa3fe0845824ea13f3a41ef09443370033754ae476a/orders?amount=${product.sellingPrice}&callback_data=${product.id}`, {})
     .subscribe(
       (response) => {
         console.log('###', response);

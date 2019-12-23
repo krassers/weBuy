@@ -34,6 +34,8 @@ public class Product {
     private String status;
 
     private String pictureUrl;
+    
+    private String paymentId;
 
     @ManyToOne
     @JoinColumn(name = "supplierId",insertable = false, updatable = false)
@@ -53,7 +55,7 @@ public class Product {
     private Long customerId;
 
     public Product(long id, @NotNull(message = "Product name is required.") String name, String description, String category, 
-    Double purchasePrice, Double sellingPrice, String status, String pictureUrl) {
+    Double purchasePrice, Double sellingPrice, String status, String pictureUrl, String paymentId) {
 
     
         this.id = id;
@@ -64,6 +66,7 @@ public class Product {
         this.sellingPrice = sellingPrice;
         this.status = status;
         this.pictureUrl = pictureUrl;
+        this.paymentId = paymentId;
     }
 
     public Product() {
@@ -161,6 +164,14 @@ public class Product {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public String getPaymentId(){
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
     }
 
 	public User getSupplier() {

@@ -1,7 +1,10 @@
 <div *ngIf="product" style="max-width: 1000px; margin: 0 auto">
     <div>
         <h1>{{product.name}}</h1>
-        <div>Status: {{product.status}}</div>
+        <span *ngIf="product.status==='RESERVED'" class="badge badge-danger">{{product.status}}</span>
+        <span *ngIf="product.status==='SOLD'" class="badge badge-info">{{product.status}}</span>
+        <span *ngIf="product.status==='APPROVED'" class="badge badge-success">{{product.status}}</span>
+        <span *ngIf="product.status==='PENDING'" class="badge badge-info">{{product.status}}</span>
         <div>{{product.description}}</div>
         <div>Price: {{product.sellingPrice}}</div>
         <div *ngIf="product.status==='RESERVED'">

@@ -39,4 +39,8 @@ export class MyProductsComponent implements OnInit {
   createProduct() {
     this.router.navigate(["add-product"]);
   }
+
+  viewProduct(id){
+    this.router.navigate(['view-product', id])
+  }
 }

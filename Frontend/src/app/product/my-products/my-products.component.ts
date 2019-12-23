@@ -31,7 +31,7 @@ export class MyProductsComponent implements OnInit {
         this.purchases = products.filter(
           product => product.customerId === userId
         );
-        console.log(products);
+        console.log('### ', products);
       })
     );
   }

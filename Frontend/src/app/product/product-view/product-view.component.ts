@@ -15,6 +15,7 @@ export class ProductViewComponent implements OnInit {
 
   product: Product;
   userId;
+  isPaying: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -35,6 +36,10 @@ export class ProductViewComponent implements OnInit {
       this.productService.getById(id)
       .subscribe((response) => {
         this.product = response;
+        if(this.product.status!==Status.PAYMENT_ACCEPTED){
+          console.log('### checking payment status on init')
+          this.checkPaymentStatus(this.product);
+        }
       })
     }
     
@@ -56,8 +61,24 @@ export class ProductViewComponent implements OnInit {
     )
   }
 
+  public checkPaymentStatus(product: Product) {
+    this.http.get(`https://gateway.gear.mycelium.com/gateways/:api_gateway_id/orders/${product.paymentId}`)
+    .subscribe((response) => {
+      console.log('### check payment status: ', response);
+      if (response['status']===2){
+        console.log('### PAYMENT ACCEPTED');
+        product.status = Status.PAYMENT_ACCEPTED;
+        this.productService.update(product).subscribe(
+          res => {console.log('### Product Status: PAYMENT ACCEPTED', product)}
+        )
+      }
+    }
+    )
+  }
+
   public createOrderAndPay(product: Product){
     console.log('### Create Order ###');
+    this.isPaying = true;
 
     const apiGatewayId = "1e57f2ac18c3a4fdc55feaa3fe0845824ea13f3a41ef09443370033754ae476a";
 
@@ -75,7 +96,12 @@ export class ProductViewComponent implements OnInit {
     .subscribe(
       (response) => {
         console.log('###', response);
-        window.location.href =  `https://gateway.gear.mycelium.com/pay/${response['payment_id']}`
+        window.open(`https://gateway.gear.mycelium.com/pay/${response['payment_id']}`, "_blank");
+        this.product.paymentId = response['payment_id'];
+        this.productService.update(product).subscribe(res => {
+          console.log('### added PaymentId to Product: ', res);
+        })
+        // window.location.href =  `https://gateway.gear.mycelium.com/pay/${response['payment_id']}`
       }
     )
     // this.http.post(`https://gateway.gear.mycelium.com/gateways/:apiGatwayId/orders?amount=150&callback_data=yourCustomData`)

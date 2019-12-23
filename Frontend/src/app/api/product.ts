@@ -6,6 +6,7 @@ export interface Product {
   purchasePrice?: number;
   status?: string;
   pictureUrl?: string;
+  paymentId?: string;
   supplierId?: number;
   customerId?: number;
 }

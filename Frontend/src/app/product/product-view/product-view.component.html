@@ -9,7 +9,7 @@
             <p>(Click Cancel Reservation to undo the reservation!)</p>
         </div>
         <div *ngIf="product.status==='APPROVED'">
-            <button class="btn btn-primary" (click)="reserveProduct(product)">Buy</button>
+            <button class="btn btn-success" (click)="reserveProduct(product)">Buy</button>
             <p>(Click Buy to reserve the product!)</p>
         </div>
 

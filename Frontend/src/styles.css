@@ -12,6 +12,25 @@
   background-color: #E51400;
 }
 
+.btn-custom:active {
+  background-color: #E51400;
+}
+
 .btn-custom:hover {
-  background-color: #FFFEFF;
+  background-color: #b31000;
+}
+
+.btn-custom-2 {
+  background: #E51400;
+  color: white;
+}
+
+.btn-custom-2:not(:disabled) {
+  background: #e51400;
+  color: white;
+}
+
+.btn-custom-2:hover {
+  background-color: #b31000;
+  color: white;
 }

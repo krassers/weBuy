@@ -4,6 +4,10 @@
         <div>Status: {{product.status}}</div>
         <div>{{product.description}}</div>
         <div>Price: {{product.sellingPrice}}</div>
+        <div *ngIf="product.status==='RESERVED'">
+            <button class="btn btn-danger" (click)="cancelReservation(product)">Cancel Reservation</button>
+            <p>(Click Cancel Reservation to undo the reservation!)</p>
+        </div>
         <div *ngIf="product.status==='APPROVED'">
             <button class="btn btn-primary" (click)="reserveProduct(product)">Buy</button>
             <p>(Click Buy to reserve the product!)</p>

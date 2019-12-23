@@ -49,6 +49,14 @@ export class ProductViewComponent implements OnInit {
     )   
   }
 
+  public cancelReservation(product: Product) {
+    product.status = Status.APPROVED;
+    product.customerId = null;
+    this.productService.update(product).subscribe(
+      res => {console.log('### Cancel Reservation', res)}
+    )
+  }
+
   public createOrderAndPay(product: Product){
     console.log('### Create Order ###');
 
@@ -64,7 +72,7 @@ export class ProductViewComponent implements OnInit {
     //   map((response) => {return response})
     // )
 
-    this.http.post(`https://gateway.gear.mycelium.com/gateways/1e57f2ac18c3a4fdc55feaa3fe0845824ea13f3a41ef09443370033754ae476a/orders?amount=150&callback_data=yourCustomData`, {})
+    this.http.post(`https://gateway.gear.mycelium.com/gateways/1e57f2ac18c3a4fdc55feaa3fe0845824ea13f3a41ef09443370033754ae476a/orders?amount=${product.sellingPrice}&callback_data=yourCustomData`, {})
     .subscribe(
       (response) => {
         console.log('###', response);

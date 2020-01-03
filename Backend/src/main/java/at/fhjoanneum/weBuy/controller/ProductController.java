@@ -21,9 +21,6 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
 
     // 19.11.2019 Phil: Replaced @GetMapping with @RequestMapping => because otherwise there would be two get methods!
     // https://github.com/ryanmccormick/spring-boot-rest-best-practices/blob/master/src/main/java/com/example/controller/ContactController.java
